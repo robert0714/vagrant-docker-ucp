@@ -1,0 +1,6 @@
+- hosts: swarm
+  remote_user: ubuntu
+  serial: 1
+  roles:
+    - common
+    - docker
