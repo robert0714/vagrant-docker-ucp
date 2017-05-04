@@ -1,0 +1,6 @@
+ip: "{{ facter_ipaddress_eth1 }}"
+consul_extra: ""
+debian_version: trusty
+docker_cfg: docker.cfg
+docker_cfg_dest: /etc/default/docker
+agent_user: vagrant
