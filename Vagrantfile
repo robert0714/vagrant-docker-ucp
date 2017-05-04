@@ -25,7 +25,6 @@ Vagrant.configure(2) do |config|
     d.vm.box ="ubuntu/trusty64" 
     d.vm.hostname = "swarm-master"
     d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.90" , gateway: "192.168.57.1" 
-    d.vm.provision :shell , inline: "systemctl restart network"
     d.vm.provider "virtualbox" do |v|
       v.memory = 1024
     end
@@ -34,7 +33,6 @@ Vagrant.configure(2) do |config|
     config.vm.define "swarm-node-#{i}" do |d|
      d.vm.box ="ubuntu/trusty64"
      d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.9#{i}" , gateway: "192.168.57.1" 
-#     d.vm.provision :shell , inline: "systemctl restart network"
      d.vm.provider "virtualbox" do |v|
         v.memory = 1536
       end
