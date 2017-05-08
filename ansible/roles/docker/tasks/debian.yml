@@ -22,14 +22,14 @@
 - name: Debian docker-py is present
   pip:
     name: docker-py
-    version: 1.6.0
+    version: 1.10.6
     state: present
   tags: [docker]
 
-- name: Debian files are present
+- name: CentOS files are present
   template:
-    src: "{{ docker_cfg }}"
-    dest: "{{ docker_cfg_dest }}"
+    src: "{{ centos_docker_cfg }}"
+    dest: "{{ centos_docker_cfg_dest }}"
   register: copy_result
   tags: [docker]
 
@@ -53,7 +53,8 @@
   tags: [docker]
 
 - name: DockerUI is running
-  docker:
+  docker_container:
+    restart_policy: always
     image: uifd/ui-for-docker
     name: dockerui
     ports: 9000:9000
