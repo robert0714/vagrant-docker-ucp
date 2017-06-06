@@ -1,6 +1,6 @@
 - hosts: swarm
-  remote_user: ubuntu # for Ubuntu 15
-#  remote_user: ubuntu # for Ubuntu 14 
+#  remote_user: ubuntu # for Ubuntu 15
+  remote_user: vagrant # for Ubuntu 14 
   serial: 1
   roles:
     - common
