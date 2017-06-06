@@ -32,6 +32,7 @@ Vagrant.configure(2) do |config|
   (1..2).each do |i|
     config.vm.define "swarm-node-#{i}" do |d|
      d.vm.box ="ubuntu/trusty64"
+     d.vm.hostname = "swarm-node-#{i}"
      d.vm.network "public_network", bridge: "eno4", ip: "192.168.57.9#{i}" , gateway: "192.168.57.1" 
      d.vm.provider "virtualbox" do |v|
         v.memory = 2048
