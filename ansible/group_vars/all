@@ -3,4 +3,5 @@ consul_extra: ""
 debian_version: trusty
 docker_cfg: docker.cfg
 docker_cfg_dest: /etc/default/docker
+centos_docker_cfg_dest: /lib/systemd/system/docker.service
 agent_user: vagrant
