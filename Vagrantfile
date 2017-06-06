@@ -43,7 +43,7 @@ Vagrant.configure(2) do |config|
     config.cache.scope = :box
   end
   if Vagrant.has_plugin?("vagrant-vbguest")
-    config.vbguest.auto_update = false
+    config.vbguest.auto_update = true
     config.vbguest.no_install = false
     config.vbguest.no_remote = false
   end
