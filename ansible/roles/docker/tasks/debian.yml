@@ -26,7 +26,12 @@
     state: present
   tags: [docker]
 
- 
+- name: Debian files are present
+  template:
+    src: "{{ docker_cfg }}"
+    dest: "{{ docker_cfg_dest }}"
+  register: copy_result
+  tags: [docker]
 
 - name: Debian Daemon is reloaded
   command: systemctl daemon-reload
