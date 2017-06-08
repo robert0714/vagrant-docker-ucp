@@ -1,9 +1,8 @@
 hosts: [
-  { host_ip: "200.200.200.200", host_name: "oracledb"},
-  { host_ip: "200.200.200.201", host_name: "mysqldb"},
-  { host_ip: "200.200.200.202", host_name: "postgrsqldb"},
-  { host_ip: "200.200.200.203", host_name: "mssql"},
-  { host_ip: "200.200.200.204", host_name: "mongodb"}
+  { host_ip: "192.168.57.89", host_name: "cd"},
+  { host_ip: "192.168.57.90", host_name: "swarm-master"},
+  { host_ip: "192.168.57.91", host_name: "swarm-node-1"},
+  { host_ip: "192.168.57.92", host_name: "swarm-node-2"}
 ]
 
 obsolete_services:

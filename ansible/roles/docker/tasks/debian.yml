@@ -1,13 +1,26 @@
+- name: Install GitLab dependencies.
+  package: name={{ item }} state=installed
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+  tags: [docker]
+
+- name: Add Docker’s official GPG key
+  command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  tags: [docker]
+
 - name: Debian add Docker repository and update apt cache
   apt_repository:
-    repo: deb https://apt.dockerproject.org/repo ubuntu-{{ debian_version }} main
+    repo: deb deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ debian_version }} stable
     update_cache: yes
     state: present
   tags: [docker]
 
 - name: Debian Docker is present
   apt:
-    name: docker-engine
+    name: docker-ce
     state: latest
     force: yes
   tags: [docker]
