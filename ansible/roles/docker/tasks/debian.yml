@@ -4,6 +4,21 @@
     update_cache: yes
     state: present
   tags: [docker]
+  
+- name: linux-image-extra-virtual is present
+  apt:
+    name: linux-image-extra-virtual
+    state: latest
+    force: yes
+  tags: [docker]
+  
+- name: linux-image-extra-$(uname -r) is present
+  apt:
+    name: linux-image-extra-$(uname -r) 
+    state: latest
+    force: yes
+  tags: [docker]  
+ 
 
 - name: Debian Docker is present
   apt:
