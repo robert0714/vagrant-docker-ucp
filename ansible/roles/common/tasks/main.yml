@@ -1,21 +1,6 @@
-- name: JQ is present
-  apt:
-    name: jq
-    force: yes
-  tags: [common]
 
-- name: Host is present
-  lineinfile:
-    dest: /etc/hosts
-    regexp: "^{{ item.host_ip }}"
-    line: "{{ item.host_ip }} {{ item.host_name }}"
-  with_items: "{{ hosts }}"
-  tags: [common]
+- include: debian.yml
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
-- name: Services are not running
-  service:
-    name: "{{ item }}"
-    state: stopped
-  ignore_errors: yes
-  with_items: "{{ obsolete_services }}"
-  tags: [common]
+- include: centos.yml
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

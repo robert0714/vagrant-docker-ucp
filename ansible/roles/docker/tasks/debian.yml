@@ -4,21 +4,6 @@
     update_cache: yes
     state: present
   tags: [docker]
-  
-- name: linux-image-extra-virtual is present
-  apt:
-    name: linux-image-extra-virtual
-    state: latest
-    force: yes
-  tags: [docker]
-  
-- name: linux-image-extra-$(uname -r) is present
-  apt:
-    name: linux-image-extra-$(uname -r) 
-    state: latest
-    force: yes
-  tags: [docker]  
- 
 
 - name: Debian Docker is present
   apt:
@@ -41,10 +26,10 @@
     state: present
   tags: [docker]
 
-- name: Debian files are present
+- name: CentOS files are present
   template:
-    src: "{{ docker_cfg }}"
-    dest: "{{ docker_cfg_dest }}"
+    src: "{{ centos_docker_cfg }}"
+    dest: "{{ centos_docker_cfg_dest }}"
   register: copy_result
   tags: [docker]
 
